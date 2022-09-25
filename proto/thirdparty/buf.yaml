@@ -1,0 +1,11 @@
+version: v1
+name: buf.build/opensergo/thirdparty
+deps: []
+build:
+  excludes: []
+lint:
+  use:
+    - DEFAULT
+breaking:
+  use:
+    - FILE

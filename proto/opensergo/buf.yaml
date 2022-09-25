@@ -1,0 +1,13 @@
+version: v1
+name: buf.build/opensergo/opensergoapis
+deps:
+  - buf.build/opensergo/thirdparty:v0.0.3
+  - buf.build/envoyproxy/protoc-gen-validate:45685e052c7e406b9fbd441fc7a568a5
+build:
+  excludes: []
+#lint:
+#  use:
+#    - DEFAULT
+#breaking:
+#  use:
+#    - FILE
