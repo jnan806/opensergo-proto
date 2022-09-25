@@ -1,6 +1,34 @@
-# Generated code
-/gen/
+###  ( For This Project Self)
+# gen-stub
+gen-stub/lib/buf/*
+gen-stub/lib/protoc/*
+# go
+stub-go/opensergo-protocol-grpc-go
+# java
+stub-java/opensergo-protocol-grpc-java
 
-# System related
-*.DS_Store
-Thumbs.db
+
+
+
+
+
+### macOS template
+.DS_Store
+*/.DS_Store
+.AppleDouble
+.LSOverride
+
+# intelij conf files
+**/**/.idea/
+*.iml
+out/
+
+# VSCode
+.vscode
+
+#eclipse conf files
+.settings/
+.eclipse
+.myeclipse
+.classpath
+.project

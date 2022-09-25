@@ -1,0 +1,13 @@
+version: v1
+plugins:
+  - name: go
+    out: ../stub-go/opensergo-protocol-grpc-go
+    opt: paths=source_relative
+  - name: go-grpc
+    out: ../stub-go/opensergo-protocol-grpc-go
+    opt: paths=source_relative
+  - name: validate
+    out: ../stub-go/opensergo-protocol-grpc-go
+    opt:
+      - paths=source_relative
+      - lang=go

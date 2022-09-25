@@ -1,0 +1,20 @@
+### macOS template
+.DS_Store
+*/.DS_Store
+.AppleDouble
+.LSOverride
+
+# intelij conf files
+**/**/.idea/
+*.iml
+out/
+
+# VSCode
+.vscode
+
+#eclipse conf files
+.settings/
+.eclipse
+.myeclipse
+.classpath
+.project

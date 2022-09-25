@@ -1,0 +1,11 @@
+version: v1
+plugins:
+  - name: java
+    out: ../stub-java/opensergo-protocol-grpc-java/src/main/java
+  - name: grpc-java
+    out: ../stub-java/opensergo-protocol-grpc-java/src/main/java
+  - name: validate
+    out: ../stub-java/opensergo-protocol-grpc-java/src/main/java
+    opt:
+      - paths=source_relative
+      - lang=java

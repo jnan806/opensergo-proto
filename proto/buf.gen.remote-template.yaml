@@ -1,0 +1,93 @@
+version: v1
+plugins:
+  - remote: buf.build/protocolbuffers/plugins/java:v21.6.0-1
+    out: ../opensergo-grpc-java/src/main/java
+  - remote: buf.build/grpc/plugins/java:v1.49.0-1
+    out: ../opensergo-grpc-java/src/main/java
+  - name: validate
+    out: ../opensergo-grpc-java/src/main/java
+    opt:
+      - paths=source_relative
+      - lang=java
+
+  - remote: buf.build/protocolbuffers/plugins/go:v1.27.1-1
+    out: ../opensergo-grpc-go
+    opt: paths=source_relative
+  - remote: buf.build/grpc/plugins/go:v1.2.0-1
+    out: ../opensergo-grpc-go
+    opt: paths=source_relative
+  - name: validate
+    out: ../opensergo-grpc-go
+    opt:
+      - paths=source_relative
+      - lang=go
+
+#  - remote: buf.build/protocolbuffers/plugins/cpp:v21.6.0-1
+#    out: ../opensergo-grpc-cpp
+#  - remote: buf.build/grpc/plugins/cpp:v1.49.0-1
+#    out: ../opensergo-grpc-cpp
+#  - name: validate
+#    out: ../opensergo-grpc-cpp
+#    opt:
+#      - paths=source_relative
+#      - lang=cpp
+
+#  - remote: buf.build/protocolbuffers/plugins/csharp:v21.6.0-1
+#    out: ../opensergo-grpc-csharp
+#  - remote: buf.build/grpc/plugins/csharp:v1.49.0-1
+#    out: ../opensergo-grpc-csharp
+#  - name: validate
+#    out: ../opensergo-grpc-csharp
+#    opt:
+#      - paths=source_relative
+#      - lang=csharp
+
+#  - remote: buf.build/protocolbuffers/plugins/cpp:v21.6.0-1
+#    out: ../opensergo-grpc-cpp
+#  - remote: buf.build/grpc/plugins/cpp:v1.49.0-1
+#    out: ../opensergo-grpc-cpp
+#  - name: validate
+#    out: ../opensergo-grpc-cpp
+#    opt:
+#      - paths=source_relative
+#      - lang=cpp
+
+#  - remote: buf.build/protocolbuffers/plugins/python:v21.6.0-1
+#    out: ../opensergo-grpc-python
+#  - remote: buf.build/grpc/plugins/python:v1.49.0-1
+#    out: ../opensergo-grpc-python
+#  - name: validate
+#    out: ../opensergo-grpc-python
+#    opt:
+#      - paths=source_relative
+#      - lang=python
+#
+#  - remote: buf.build/protocolbuffers/plugins/ruby:v21.6.0-1
+#    out: ../opensergo-grpc-ruby
+#  - remote: buf.build/grpc/plugins/ruby:v1.49.0-1
+#    out: ../opensergo-grpc-ruby
+#  - name: validate
+#    out: ../opensergo-grpc-ruby
+#    opt:
+#      - paths=source_relative
+#      - lang=ruby
+#
+#  - remote: buf.build/protocolbuffers/plugins/php:v21.6.0-1
+#    out: ../opensergo-grpc-php
+#  - remote: buf.build/grpc/plugins/php:v1.49.0-1
+#    out: ../opensergo-grpc-php
+#  - name: validate
+#    out: ../opensergo-grpc-php
+#    opt:
+#      - paths=source_relative
+#      - lang=php
+#
+#  - remote: buf.build/protocolbuffers/plugins/js:v3.20.1-1
+#    out: ../opensergo-grpc-node
+#  - remote: buf.build/grpc/plugins/node:v1.11.2-1
+#    out: ../opensergo-grpc-node
+#  - name: validate
+#    out: ../opensergo-grpc-node
+#    opt:
+#      - paths=source_relative
+#      - lang=node
