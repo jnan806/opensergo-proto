@@ -1,18 +1,3 @@
-###  ( For This Project Self)
-protoc-gen/lib
-# gen-stub
-gen-stub/lib/buf/*
-gen-stub/lib/protoc/*
-# go
-stub-go/opensergo-protocol-grpc-go
-# java
-stub-java/opensergo-protocol-grpc-java
-
-
-
-
-
-
 ### macOS template
 .DS_Store
 */.DS_Store

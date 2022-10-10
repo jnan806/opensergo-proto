@@ -16,12 +16,12 @@ syntax = "proto3";
 
 package opensergo.proto.service_contract.v1;
 
-import "google/protobuf/timestamp.proto";
-
-option java_multiple_files = true;
-option java_package = "io.opensergo.proto.service_contract.v1";
+option java_package = "io.opensergo.protocol.grpc.service_contract.v1";
 option java_outer_classname = "ServiceContractProto";
-option go_package = "github.com/opensergo/opensergo-go/proto/service_contract/v1";
+option java_multiple_files = true;
+option go_package = "github.com/jnan806/opensergo-protocol-grpc-go/service_contract/v1";
+
+import "google/protobuf/timestamp.proto";
 
 // MetadataService report metadata
 service MetadataService {
@@ -56,7 +56,7 @@ message ServiceDescriptor {
   string name = 1;
   repeated MethodDescriptor methods = 2;
   // description of this service
-  optional string description = 3;
+  string description = 3;
 }
 
 // Describes a method of a service.
@@ -69,12 +69,12 @@ message MethodDescriptor {
   repeated string output_types = 3;
 
   // Identifies if client streams multiple client messages
-  optional bool client_streaming = 5; // [default = false];
+  bool client_streaming = 5; // [default = false];
   // Identifies if server streams multiple server messages
-  optional bool server_streaming = 6; // [default = false];
+  bool server_streaming = 6; // [default = false];
 
   // description of this method
-  optional string description = 7;
+  string description = 7;
 
   repeated string http_paths = 8;
   repeated string http_methods = 9;
@@ -91,7 +91,7 @@ message ServiceOptions {
   // Depending on the target platform, this can emit Deprecated annotations
   // for the service, or it will be completely ignored; in the very least,
   // this is a formalization for deprecating services.
-  optional bool deprecated = 33; // [default = false];
+  bool deprecated = 33; // [default = false];
 
   // The parser stores options it doesn't recognize here. See above.
   repeated UninterpretedOption uninterpreted_option = 999;
@@ -111,7 +111,7 @@ message MethodOptions {
   // Depending on the target platform, this can emit Deprecated annotations
   // for the method, or it will be completely ignored; in the very least,
   // this is a formalization for deprecating methods.
-  optional bool deprecated = 33; // [default = false];
+  bool deprecated = 33; // [default = false];
 
   // The parser stores options it doesn't recognize here. See above.
   repeated UninterpretedOption uninterpreted_option = 999;
@@ -121,7 +121,7 @@ message MethodOptions {
 }
 
 // Describes a oneof.
-message OneofDescriptorProto { optional string name = 1; }
+message OneofDescriptorProto { string name = 1; }
 
 // Describes a message type.
 message TypeDescriptor {
@@ -129,14 +129,14 @@ message TypeDescriptor {
 
   repeated FieldDescriptor fields = 2;
 
-  optional MessageOptions options = 7;
+  MessageOptions options = 7;
 
   // Range of reserved tag numbers. Reserved tag numbers may not be used by
   // fields or extension ranges in the same message. Reserved ranges may
   // not overlap.
   message ReservedRange {
-    optional int32 start = 1; // Inclusive.
-    optional int32 end = 2;   // Exclusive.
+    int32 start = 1; // Inclusive.
+    int32 end = 2;   // Exclusive.
   }
   repeated ReservedRange reserved_range = 9;
   // Reserved field names, which may not be used by fields in the same message.
@@ -146,19 +146,19 @@ message TypeDescriptor {
 
 // Describes an enum type.
 message EnumDescriptorProto {
-  optional string name = 1;
+  string name = 1;
 
   repeated EnumValueDescriptorProto value = 2;
 
-  optional MessageOptions options = 3;
+  MessageOptions options = 3;
 }
 
 // Describes a value within an enum.
 message EnumValueDescriptorProto {
-  optional string name = 1;
-  optional int32 number = 2;
+  string name = 1;
+  int32 number = 2;
 
-  optional EnumValueOptions options = 3;
+  EnumValueOptions options = 3;
 }
 
 message EnumValueOptions {
@@ -166,7 +166,7 @@ message EnumValueOptions {
   // Depending on the target platform, this can emit Deprecated annotations
   // for the enum value, or it will be completely ignored; in the very least,
   // this is a formalization for deprecating enum values.
-  optional bool deprecated = 1; //[default = false];
+  bool deprecated = 1; //[default = false];
 }
 
 message MessageOptions {
@@ -174,7 +174,7 @@ message MessageOptions {
   // Depending on the target platform, this can emit Deprecated annotations
   // for the message, or it will be completely ignored; in the very least,
   // this is a formalization for deprecating messages.
-  optional bool deprecated = 3; // [default = false];
+  bool deprecated = 3; // [default = false];
 }
 
 // Describes a field within a message.
@@ -222,7 +222,7 @@ message FieldDescriptor {
 
   string name = 1;
   int32 number = 3;
-  optional Label label = 4;
+  Label label = 4;
 
   // If type_name is set, this need not be set.  If both this and type_name
   // are set, this must be one of TYPE_ENUM, TYPE_MESSAGE or TYPE_GROUP.
@@ -233,10 +233,10 @@ message FieldDescriptor {
   // rules are used to find the type (i.e. first the nested types within this
   // message are searched, then within the parent, on up to the root
   // namespace).
-  optional string type_name = 6;
+  string type_name = 6;
 
   // description of this field
-  optional string description = 7;
+  string description = 7;
 }
 
 message FieldOptions {
@@ -244,7 +244,7 @@ message FieldOptions {
   // Depending on the target platform, this can emit Deprecated annotations
   // for accessors, or it will be completely ignored; in the very least, this
   // is a formalization for deprecating fields.
-  optional bool deprecated = 3;
+  bool deprecated = 3;
 
   // The parser stores options it doesn't recognize here. See above.
   repeated UninterpretedOption uninterpreted_option = 999;
@@ -258,11 +258,11 @@ message Node {
   // Identifier that uniquely identifies a process within a VM/container.
   NodeIdentifier identifier = 1;
   // Locality specifying where the instance is running.
-  optional Locality locality = 4;
+  Locality locality = 4;
 
-  optional string tag = 5;
-  optional string cluster = 6;
-  optional string env = 7;
+  string tag = 5;
+  string cluster = 6;
+  string env = 7;
 }
 
 // Identifier that uniquely identifies a process within a VM/container.
@@ -318,10 +318,10 @@ message UninterpretedOption {
 
   // The value of the uninterpreted option, in whatever type the tokenizer
   // identified it as during parsing. Exactly one of these should be set.
-  optional string identifier_value = 3;
-  optional uint64 positive_int_value = 4;
-  optional int64 negative_int_value = 5;
-  optional double double_value = 6;
-  optional bytes string_value = 7;
-  optional string aggregate_value = 8;
+  string identifier_value = 3;
+  uint64 positive_int_value = 4;
+  int64 negative_int_value = 5;
+  double double_value = 6;
+  bytes string_value = 7;
+  string aggregate_value = 8;
 }
